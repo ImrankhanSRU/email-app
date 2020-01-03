@@ -1,0 +1,52 @@
+.flex-box {
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header {
+    padding: 10px 30px;
+}
+
+.icons {
+    display: flex;
+    width: 10%;
+    justify-content: space-around;
+    align-items: center;
+    color: #666666;
+    font-weight: bold;
+}
+
+.search {
+    outline: none;
+    border: none;
+    padding: 10px;
+    width: 70%;
+    font-size: 16px;
+}
+
+::placeholder {
+    font-weight: bold;
+    color: #a89a9a;
+    font-size: 16px;
+}
+
+.icon {
+    width: 20px;
+    // padding-right: 20px;
+}
+
+.logout {
+    display: inline;
+    cursor: pointer;
+}
+
+.label-con {
+    position: relative;
+}
+
+.menu-icon {
+    background-color: rgb(46, 183, 154);
+    padding: 5px 8px;
+    border-radius: 3px;
+}
