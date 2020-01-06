@@ -1,0 +1,22 @@
+<div *ngFor = "let mail of emails; let i = index" class="mail-card" style="font-weight: bold;" (click) = "readMail(i)">
+    <div style="display: flex; justify-content: space-between; width: 80%;">
+        <div class="flex-box" style="width: 35%;">
+            <div class="flex-box">
+                <label class="container">
+                    <input class="checkbox" type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <div style="margin-left: 10px;">{{mail.senderName}}</div>
+            </div>
+            <!-- <app-label type="unRead" text="Documents"></app-label> -->
+            <div style="margin-right: 30px;">Documents</div>
+        </div>
+        <div style="width: 60%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            {{mail.subject}}
+        </div >
+    </div>
+    <div style="width: 15%; display: flex; align-items: center; justify-content: space-between;">
+        <img [ngStyle]="{'visibility': true ? 'hidden' : 'visible' }" src="../../assets//important.png" />
+        <div>{{mail.time}}</div>
+    </div>
+</div>

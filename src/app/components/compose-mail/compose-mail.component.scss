@@ -1,0 +1,82 @@
+.compose-container {
+    position: absolute;
+    top: 35%;
+    // left: 60%;
+    right: 70px;
+    width: 35%;
+    // border: 1px solid lightgrey;
+    background-color: white;
+    .header {
+        // width: 100%;
+        // padding: 10px;
+        padding: 10px;
+        color: white;
+        background-color: #666666;
+        border-radius: 5px 5px 0px 0px;
+    }
+
+    .body {
+        padding: 10px;
+    }
+}
+
+
+label {
+    color: gray;
+    padding-right: 10px;
+    // width: 12%;
+    border-bottom: 1px solid lightgrey;
+    padding-bottom: 10px;
+}
+
+
+
+.label-div {
+    padding: 5px;
+}
+
+.to-input {
+    // position: absolute;
+    padding-bottom: 10px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid lightgrey;
+    width: 100%;
+}
+
+.message-area {
+    width: 95%; 
+    height: 30vh; 
+    padding: 10px;
+    border: none;
+    outline: none;
+    resize: none;
+}
+
+.close-button {
+    width: 24px; 
+    height: 24px;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    opacity: 0.8;
+}
+
+.cc {
+    cursor: pointer;
+}
+
+.cc:hover {
+    border-bottom: 1px solid lightgrey;
+}
+
+::placeholder {
+    font-weight: normal;
+}
+
+.send {
+    float: right;
+    width: 25%; 
+    margin-bottom: 10px;
+}

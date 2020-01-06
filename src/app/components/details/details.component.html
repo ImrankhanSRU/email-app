@@ -1,0 +1,43 @@
+<div class="details">
+    <div class="primary-button" (click)="toggleComposeMail()">
+        Compose Mail
+    </div>
+    <div class="folders-container">
+        <div class="heading">FOLDERS</div>
+        <div class="folder-name">
+            <div class="folder" *ngFor="let f of folders">
+                <div>
+                    <img class="icon" [src]='f.url' />
+                    <p class="name">{{f.name}}</p>
+                </div>
+                <div *ngIf="(f.name == 'Inbox' || f.name == 'Drafts') && inboxService.count[f.name.toLowerCase()] " [ngClass]="['label', f.name] ">
+                    {{inboxService.count[f.name.toLowerCase()]}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="folders-container">
+        <div class="heading">CATEGORIES</div>
+        <div class="folder-name">
+            <div class="folder" style="border: none" *ngFor="let c of categories">
+                <div style="display: flex; align-items: center;">
+                    <div [ngStyle]="{'background': c.color}" class="pointer"></div>
+                    <p class="name">{{c.name}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="folders-container">
+        <div class="heading">LABELS</div>
+        <div class="label-container">
+            <div class="label-con" *ngFor="let l of labels">
+                <img class="tag-icon" src="../../assets/tag.png" />
+                {{l}}
+            </div>
+        </div>
+    </div>
+
+    <app-compose-mail *ngIf="inboxService.showComposeMail"></app-compose-mail>
+</div>

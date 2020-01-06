@@ -12,8 +12,8 @@ export class LabelComponent implements OnInit {
   labelColors = {
     unRead: "rgb(251, 160, 48)",
     notification: "#2eb79a",
-    documents: "red",
-    ad: "blue"
+    documents: "#EF5463",
+    ad: "#09C6C9"
   }
 
   constructor() { }

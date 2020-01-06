@@ -1,0 +1,87 @@
+<div class="flex-box" style= "justify-content: stretch; height: 100vh;">
+    <div class="sidenav-content sidenav-container" (click) = "toggleSideNav($e)">
+        <div class="sidenav-icon-container top-icon">IN+</div>
+        <div class="sidenav-icon-container">
+            <img class="sidenav-icon" src="../../assets/square.png" />
+            <div class="icon-text">Dashboard</div>
+        </div>
+        <div class="sidenav-icon-container">
+            <img class="sidenav-icon" src="../../assets/diamond.png" />
+            <div class="icon-text">Layouts</div>
+        </div>
+        <div class="sidenav-icon-container">
+            <img class="sidenav-icon" src="../../assets/graph.png" />
+            <div class="icon-text">Mailbox</div>
+        </div>
+        <div class="sidenav-icon-container">
+            <img class="sidenav-icon" src="../../assets/envelope.png" />
+            <div class="icon-text">Metrics</div>
+        </div>
+        <div class="sidenav-icon-container">
+            <img class="sidenav-icon" src="../../assets/square.png" />
+            <div class="icon-text">Widgets</div>
+        </div>
+        <div class="sidenav-icon-container">
+            <img class="sidenav-icon" src="../../assets/diamond.png" />
+            <div class="icon-text">Forms</div>
+        </div>
+        <div class="sidenav-icon-container">
+            <img class="sidenav-icon" src="../../assets/graph.png" />
+            <div class="icon-text">App Views</div>
+        </div>
+        <div class="sidenav-icon-container">
+            <img class="sidenav-icon" src="../../assets/envelope.png" />
+            <div class="icon-text">App Views</div>
+        </div>
+        <div class="sidenav-icon-container">
+            <img class="sidenav-icon" src="../../assets/square.png" />
+            <div class="icon-text">App Views</div>
+        </div>
+        <div class="sidenav-icon-container">
+            <img class="sidenav-icon" src="../../assets/diamond.png" />
+            <div class="icon-text">App Views</div>
+        </div>
+        <div class="sidenav-icon-container">
+            <img class="sidenav-icon" src="../../assets/graph.png" />
+            <div class="icon-text">App Views</div>
+        </div>
+        <div class="sidenav-icon-container">
+            <img class="sidenav-icon" src="../../assets/envelope.png" />
+            <div class="icon-text">App Views</div>
+        </div>
+
+
+    </div>
+
+    <div class="email-container" >
+        <div class="flex-box header">
+            <div class="flex-box menu-container">
+                <img class="menu-icon" src="../../assets/menu.png">
+                <input class="search" placeholder="Search for something..." />
+            </div>
+            <div class="icons">
+                <div class="label-con">
+                    <img class="icon" src="../../assets/envelope.png" />
+                    <app-label *ngIf = "inboxService.count['inbox']"  type="unRead" text="{{inboxService.count['inbox']}}"></app-label>
+                </div>
+                <div class="label-con">
+                    <img class="icon" src="../../assets/notification.png" />
+                    <app-label type="notification" text=7></app-label>
+                </div>
+                <div style="display: flex;">
+                    <img class="icon logout" src="../../assets/logout.png" />
+                    <span class="logout">Log out</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="details-container">
+            <app-details style="width: 30%;"></app-details>
+            <div class="inbox">
+                <app-inbox></app-inbox>
+            </div>
+
+        </div>
+
+    </div>
+</div>

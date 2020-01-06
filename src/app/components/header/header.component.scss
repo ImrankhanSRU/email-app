@@ -1,0 +1,172 @@
+.flex-box {
+    display: flex; 
+    // align-items: center;
+    justify-content: space-between;
+}
+
+.header {
+    padding: 15px 30px;
+    // width: 92vw;
+    height: 4vh;
+    // align-items: flex-start;
+    background-color: white;
+}
+
+.icons {
+    display: flex;
+    width: 15vw;
+    justify-content: space-around;
+    align-items: center;
+    color: #666666;
+    font-weight: bold;
+}
+
+.search {
+    outline: none;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+}
+
+.icon {
+    width: 20px;
+    // padding-right: 20px;
+}
+
+.logout {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.label-con {
+    position: relative;
+}
+
+.menu-icon {
+    display: none;
+    background-color: rgb(46, 183, 154);
+    padding: 5px 8px;
+    border-radius: 3px;
+}
+
+.menu-container {
+    // width: 90%; 
+    // justify-content: start;
+}
+
+.sidenav-container {
+    // width: 4vw;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    background-color: #2E4051;
+    // background: #212f3c
+    cursor: pointer;
+    overflow: hidden;
+}
+  
+.sidenav-content {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    // height: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+  
+.sidenav-icon-container {
+    // width: 5vw;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #A6B1C3;
+}
+
+.sidenav-icon {
+    width: 24px;
+    height: 24px;
+    color: #A6B1C3;
+}
+
+.icon-text {
+    font-size: 0;
+}
+
+.top-icon {
+    color: white; 
+    font-size: 20px;
+    background-color: #212f3c; 
+}
+
+.email-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    // height: 100%;
+}
+
+.details-container {
+    display: flex;
+    // justify-content: space-between;
+    // width: 20%;
+    padding: 20px 30px;
+}
+
+.inbox {
+    padding: 20px 40px;    
+    width: 100%;
+}
+
+@media(max-width: 1024px){
+    .icons {
+        width: 25vw;
+    }
+
+    .sidenav-container {
+        // width: 7vw;
+        height: 100vh;
+    }
+    .sidenav-icon-container {
+        width: 10vw;
+    }
+    .header {
+        height: 2.5vh;
+        padding: 15px;
+        // width: 90vw;
+    }
+
+}
+
+@media(max-width: 1024px) {
+    .details-container {
+        // width: 30%;
+    }
+}
+
+@media(max-width: 767px) {
+    .menu-icon {
+        display: block;
+    }
+    .icons {
+        display: none;
+    }
+    .sidenav-container {
+        display: none;
+    }
+
+    .header {
+        padding: 5px;
+        height: 5vh;
+        width: 100vw;
+    }
+
+    .details-container {
+        padding: 0;
+        margin-top: 20px;
+    }
+
+    .inbox {
+        padding: 0;
+    }
+}
+

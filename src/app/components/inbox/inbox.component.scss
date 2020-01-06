@@ -1,0 +1,80 @@
+.inbox-container {
+    background-color: white;
+    padding: 20px 0px;
+    color: #666666;
+    .header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        padding: 10px;
+    }
+    .heading {
+        font-size: 25px;
+    }
+}
+
+.inbox-search {
+    padding: 5px 10px;
+    width: 20vw;
+    // border-radius: 5px;
+    border: 1px solid lightgray
+}
+
+::placeholder {
+    font-weight: normal;
+}
+
+.search-button {
+    padding: 5px;
+    width: 20%;
+    border-radius: 0px;
+    border: none;
+    outline: none;
+}
+
+.search-container {
+    // width: 30%; 
+    display: flex;
+}
+
+.icon-con {
+    border: 1px solid lightgray;
+    margin-right: 5px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+.icon-con:hover {
+    background-color: lightgray;
+}
+
+.fun-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 10px;;
+}
+
+@media(max-width: 767px) {
+    .inbox-container {
+        width: 97vw;
+        .header {
+            flex-direction: column;
+        }
+
+        .heading {
+            margin-bottom: 10px;
+        }
+    }
+
+    .search-container {
+        width: 98%;
+    }
+}
+
+// .mails-container {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+// }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InboxService } from '../../services/inbox-service/inbox.service'
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  constructor(private inboxService: InboxService) { }
 
   ngOnInit() {
+  }
+
+  toggleSideNav(e) {
+    console.log(e)
   }
 
 }

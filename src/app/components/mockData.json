@@ -1,0 +1,61 @@
+{
+    "folders": [
+        {
+            "name": "Inbox",
+            "url": "../../assets/inbox.png"
+        },
+        {
+            "name": "Send Mail",
+            "url": "../../assets/sendmail.png"
+        },
+        {
+            "name": "Important",
+            "url": "../../assets/important.png"
+        },
+        {
+            "name": "Drafts",
+            "url": "../../assets/drafts.png"
+        },
+        {
+            "name": "Trash",
+            "url": "../../assets/trash.png"
+        }
+    ],
+    "categories": [
+        {
+            "name": "Work",
+            "color": "#2eb79a"
+        },
+        {
+            "name": "Documents",
+            "color": "#EF5463"
+        },
+        {
+            "name": "Social",
+            "color": "#0F83C9"
+        },
+        {
+            "name": "Advertising",
+            "color": "#06C6C9"
+        },
+        {
+            "name": "Clients",
+            "color": "#fba030"
+        }
+    ],
+    "users": [
+        {
+            "id": 1,
+            "userName": "imran@gmail.com",
+            "name": "Imrankhan",
+            "pwd": "imran"
+        },
+        {
+            "id": 2,
+            "userName": "user1@gmail.com",
+            "name": "User1",
+            "pwd": "user123"
+        }
+    ],
+    "labels": ["Family", "Work", "Home", "Children", "Holidays", "Music", "Photography", "Film"]
+}

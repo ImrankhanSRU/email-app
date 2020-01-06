@@ -1,0 +1,84 @@
+
+
+.folders-container {
+    padding: 20px 0;
+    // width: 100%;
+    color: #666666;
+    font-weight: bold;
+    .heading {
+        margin-bottom: 20px;
+    }
+}
+
+.folder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    font-weight: normal;
+    border-bottom: 1px solid lightgray;
+    .name {
+        margin-left: 10px;
+        text-align: center;
+        display: inline;
+    }
+    .icon {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+.label {
+    color: white;
+    left: 10px;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.Inbox {
+    background-color: rgb(251, 160, 48);
+}
+
+.Drafts {
+    background-color: #EF5463; 
+}
+
+.pointer {
+    width: 12px;
+    height: 12px;
+    // background-color: red;
+    border-radius: 10px;
+}
+
+p {
+    margin: 0;
+}
+
+.label-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: stretch;
+    color: 666666;
+    font-weight: normal;
+}
+
+.label-con {
+    padding: 5px 10px;
+    background-color: white;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.tag-icon {
+    width: 14px;
+    height: 14px;
+}
+
+@media(max-width: 767px) {
+    .details {
+        display: none;
+    }
+}

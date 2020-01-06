@@ -1,0 +1,31 @@
+<div class="compose-container">
+    <div class="header flex-box">
+        <div>
+            New Message
+        </div>
+        <img (click)="hideCompose(e)" class="close-button" src="../../../assets/close.png" />
+    </div>
+    <div class="receipients body">
+        <div class="flex-box label-div">
+            <div>
+                <label style="border: none">From </label> ikikhan23@gmail.com
+            </div>
+            <div *ngIf = "!showCc" (click) = "showCcDiv()" class="cc">Cc</div>
+        </div>
+        <div class="flex-box  label-div">
+            <label> To </label>
+            <input [(ngModel)]="to" class="to-input" />
+        </div>
+        <div *ngIf = "showCc" class="flex-box  label-div">
+            <label> Cc </label>
+            <input [(ngModel)]="cc" class="to-input" />
+            <label (click) = "showCcDiv()" style="font-size: 18px; cursor: pointer; font-weight: bold;">x</label>
+        </div>
+        <div class="flex-box  label-div">
+            <!-- <label> Subject </label> -->
+            <input [(ngModel)]="subject" placeholder="Subject" class="to-input" />
+        </div>
+        <textarea [(ngModel)] = "message" class="message-area"></textarea>
+        <div class="primary-button send" (click) = "sendMail()" >Send</div>
+    </div>
+</div>

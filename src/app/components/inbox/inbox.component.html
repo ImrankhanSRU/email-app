@@ -1,0 +1,41 @@
+<div class="inbox-container">
+    <div class="header">
+        <div class="heading">
+            Inbox ({{inboxService.count['inbox']}})
+        </div>
+        <div class="search-container">
+            <input placeholder="Search email" class="inbox-search" />
+            <div class="primary-button search-button">Search</div>
+        </div>
+    </div>
+
+    <div class="fun-container">
+        <div style="display: flex;">
+            <div class="icon-con">
+                <img style="width: 12px; height: 12px;" src="../../assets//refresh.png" />
+                Refresh
+            </div>
+            <div class="icon-con">
+                <img style="width: 14px; height: 14px;" src="../../assets/eye.png" />
+            </div>
+            <div class="icon-con">
+                <img style="width: 14px; height: 14px;" src="../../assets/exclamation.png" />
+            </div>
+            <div class="icon-con">
+                <img style="width: 14px; height: 14px;" src="../../assets/trash.png" />
+            </div>
+        </div>
+        <div style="display: flex;">
+            <div class="icon-con" style="margin: 0;">
+                <img style="width: 14px; height: 14px;" src="../../assets/left.png" />
+            </div>
+            <div class="icon-con" style="margin: 0;">
+                <img style="width: 14px; height: 14px;" src="../../assets/right.png" />
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="mails-container"> -->
+    <app-mail-list></app-mail-list>
+    <!-- </div> -->
+</div>
