@@ -7,13 +7,25 @@ import { InboxService } from '../../services/inbox-service/inbox.service'
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  public isSideBarCollapse = false;
+  public dropDownName = '';
   constructor(private inboxService: InboxService) { }
 
   ngOnInit() {
   }
 
-  toggleSideNav(e) {
-    console.log(e)
+  toggleSideNav() {
+    this.isSideBarCollapse =! this.isSideBarCollapse;
+    if(this.isSideBarCollapse){
+      this.dropDownName = '';
+    }
   }
+  openDropdown(menu) {
+    if(menu != this.dropDownName) {
+      this.dropDownName = menu;
+    } else {
+      this.dropDownName = '';
+    }
 
+}
 }
