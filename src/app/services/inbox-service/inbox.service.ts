@@ -9,8 +9,9 @@ export class InboxService {
   showComposeMail = false
   count = {inbox: 0, drafts: 7}
   constructor() {
-    this.userId = localStorage.getItem('loggedInUserId')
+    this.userId = (localStorage.getItem('loggedInUserId'))
     this.emails = JSON.parse(localStorage.getItem('mails')).filter(item => item.receiverId == this.userId)
+    console.log(this.userId)
     this.count.inbox = this.emails.filter(item => !item.isRead).length
   }
 
