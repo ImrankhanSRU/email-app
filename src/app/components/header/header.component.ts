@@ -8,12 +8,24 @@ import { MailService } from '../../services/inbox-service/mail.service'
 })
 export class HeaderComponent implements OnInit {
   constructor(private mailService: MailService) { }
+  public isSideBarCollapse = false;
+  public dropDownName = '';
 
   ngOnInit() {
   }
 
-  toggleSideNav(e) {
-    console.log(e)
+  toggleSideNav() {
+    this.isSideBarCollapse =! this.isSideBarCollapse;
+    if(this.isSideBarCollapse){
+      this.dropDownName = '';
+    }
   }
+  openDropdown(menu) {
+    if(menu != this.dropDownName) {
+      this.dropDownName = menu;
+    } else {
+      this.dropDownName = '';
+    }
 
+}
 }
