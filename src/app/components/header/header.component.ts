@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { InboxService } from '../../services/inbox-service/inbox.service'
+import { MailService } from '../../services/inbox-service/mail.service'
 
 @Component({
   selector: 'app-header',
@@ -7,7 +7,7 @@ import { InboxService } from '../../services/inbox-service/inbox.service'
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  constructor(private inboxService: InboxService) { }
+  constructor(private mailService: MailService) { }
 
   ngOnInit() {
   }

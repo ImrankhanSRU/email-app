@@ -1,34 +1,62 @@
 import { Component, OnInit } from '@angular/core';
-import { InboxService } from '../../services/inbox-service/inbox.service'
+import { MailService } from '../../services/inbox-service/mail.service'
+import { users } from '../mockData.json'
+import { ViewChild } from '@angular/core';
+
 @Component({
   selector: 'app-compose-mail',
   templateUrl: './compose-mail.component.html',
   styleUrls: ['./compose-mail.component.scss']
 })
+
 export class ComposeMailComponent implements OnInit {
+  @ViewChild('alert' ,{static: true}) public btn: HTMLButtonElement;
+
   to;
   subject;
   cc;
   showCc = false;
   message;
+  showAlert = false;
+  status = "Success"
+  alertText = "Mail sent"
   // showCompose = true
-  constructor(private inboxService : InboxService) { }
+
+  constructor(private mailService: MailService) { }
 
   ngOnInit() {
   }
 
   hideCompose(e) {
-    this.inboxService.hideComposeMail()
+    this.mailService.hideComposeMail()
   }
 
   showCcDiv() {
     this.showCc = !this.showCc
   }
 
-  sendMail = () => {
-    console.log(this.to)
-    console.log(this.cc)
-    console.log(this.message)
+  sendMail() {
+    let mail = {
+      senderId: this.mailService.userId
+    }
+    let receiver = users.filter(item => item.userName == this.to)
+    if (receiver.length) {
+      this.status = "Success"
+      this.alertText = "Mail sent"
+    }
+
+    else {
+      this.status = "Error"
+      this.alertText = "Mail id not found"
+    }
+    this.showAlert = true
+    setTimeout(() => {
+      this.closeAlert()
+    }, 1000)
+  }
+
+  closeAlert = () => {
+    console.log(this.btn)
   }
 
 }

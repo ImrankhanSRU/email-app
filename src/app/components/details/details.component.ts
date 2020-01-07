@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { folders, categories, labels } from '../mockData.json'
-import { InboxService } from '../../services/inbox-service/inbox.service'
+import { MailService } from '../../services/inbox-service/mail.service'
 
 @Component({
   selector: 'app-details',
@@ -13,7 +13,7 @@ export class DetailsComponent implements OnInit {
   categories;
   show = false
   labels;
-  constructor(private inboxService : InboxService) { }
+  constructor(private mailService : MailService) { }
 
   ngOnInit() {
     let mails = [{senderId: 1, receiverId: 2, subject: "Testing mail", body: "This is a mail", isRead: 0, time: new Date()}]
@@ -24,7 +24,7 @@ export class DetailsComponent implements OnInit {
   }
 
   toggleComposeMail = () => {
-    this.inboxService.popupComposeMail()
+    this.mailService.popupComposeMail()
   }
 
   

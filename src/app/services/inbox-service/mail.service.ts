@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class InboxService {
+export class MailService {
   userId;
   emails;
   showComposeMail = false
@@ -11,7 +11,6 @@ export class InboxService {
   constructor() {
     this.userId = (localStorage.getItem('loggedInUserId'))
     this.emails = JSON.parse(localStorage.getItem('mails')).filter(item => item.receiverId == this.userId)
-    console.log(this.userId)
     this.count.inbox = this.emails.filter(item => !item.isRead).length
   }
 
@@ -38,6 +37,11 @@ export class InboxService {
       this.emails[index].isRead = 1
       this.count.inbox--;
     }
+  }
+
+  sendMail = (data) => {
+    this.emails.push(data)
+    localStorage.setItem('mails', JSON.stringify(this.emails))
   }
 
 }

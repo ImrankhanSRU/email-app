@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { InboxService } from '../../services/inbox-service/inbox.service'
+import { MailService } from '../../services/inbox-service/mail.service'
 
 @Component({
   selector: 'app-inbox',
@@ -8,7 +8,7 @@ import { InboxService } from '../../services/inbox-service/inbox.service'
 })
 export class InboxComponent implements OnInit {
 
-  constructor(private inboxService: InboxService) { }
+  constructor(private mailService: MailService) { }
   ngOnInit() {
   }
 

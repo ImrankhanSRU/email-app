@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { InboxService } from '../../services/inbox-service/inbox.service'
+import { MailService } from '../../services/inbox-service/mail.service'
 import { users } from '../mockData.json'
 
 @Component({
@@ -9,10 +9,10 @@ import { users } from '../mockData.json'
 })
 export class MailListComponent implements OnInit {
   emails;
-  constructor(private inboxService: InboxService) { }
+  constructor(private mailService: MailService) { }
 
   ngOnInit() {
-    this.emails = this.inboxService.getEmails()
+    this.emails = this.mailService.getEmails()
     this.emails.map(item => {
       item.senderName = users.filter(user => user.id == item.senderId )[0].name
       if(new Date(item.time).toLocaleDateString() == new Date().toLocaleDateString()) {
@@ -25,7 +25,7 @@ export class MailListComponent implements OnInit {
   }
 
   readMail = (i) => {
-    this.inboxService.decreaseUnReadCount(i)
+    this.mailService.decreaseUnReadCount(i)
   }
 
 }
