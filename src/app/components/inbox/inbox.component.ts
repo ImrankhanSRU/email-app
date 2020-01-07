@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output, EventEmitter } from '@angular/core';
 import { MailService } from '../../services/inbox-service/mail.service'
 
 @Component({
@@ -9,7 +9,16 @@ import { MailService } from '../../services/inbox-service/mail.service'
 export class InboxComponent implements OnInit {
 
   constructor(private mailService: MailService) { }
+
+  public isReadMail = false;
+  readMailData = {};
   ngOnInit() {
   }
-
+  passMessageToViewMail(data){
+    this.readMailData = data;
+    this.isReadMail = true;
+  }
+  getInboxList(event){
+    this.isReadMail = event;
+  }
 }

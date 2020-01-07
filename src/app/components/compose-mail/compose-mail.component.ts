@@ -52,11 +52,12 @@ export class ComposeMailComponent implements OnInit {
     this.showAlert = true
     setTimeout(() => {
       this.closeAlert()
-    }, 1000)
+    }, 2000);
   }
 
   closeAlert = () => {
     console.log(this.btn)
+    this.showAlert = false;
   }
 
 }

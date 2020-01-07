@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { MailService } from '../../services/inbox-service/mail.service'
 import { users } from '../mockData.json'
 
@@ -9,24 +9,29 @@ import { users } from '../mockData.json'
 })
 export class MailListComponent implements OnInit {
   emails;
-  constructor(private mailService: MailService) { }
+  sendReadMailDetails = {};
+  @Output()
+  passMesaageDetails = new EventEmitter<any>();
+
+  constructor(private mailService: MailService) {
+  }
 
   ngOnInit() {
     this.emails = this.mailService.getEmails()
     console.log(this.emails)
     this.emails.map(item => {
-      item.senderName = users.filter(user => user.id == item.senderId )[0].name
-      if(new Date(item.time).toLocaleDateString() == new Date().toLocaleDateString()) {
+      item.senderName = users.filter(user => user.id == item.senderId)[0].name
+      if (new Date(item.time).toLocaleDateString() == new Date().toLocaleDateString()) {
         item.time = new Date(item.time).toLocaleTimeString()
-      }
-      else {
+      } else {
         item.time = new Date(item.time).toDateString()
       }
     })
   }
 
   readMail = (i) => {
-    this.mailService.decreaseUnReadCount(i)
+    this.mailService.decreaseUnReadCount(i);
+    this.sendReadMailDetails = this.emails[i];
+    this.passMesaageDetails.emit(this.sendReadMailDetails);
   }
-
 }

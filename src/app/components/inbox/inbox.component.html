@@ -1,5 +1,5 @@
 <div class="inbox-container">
-    <div class="header">
+    <div class="header" *ngIf="!isReadMail">
         <div class="heading">
             Inbox<span *ngIf = "mailService.count['inbox']" >({{mailService.count['inbox']}})</span>
         </div>
@@ -11,21 +11,21 @@
 
     <div class="fun-container">
         <div style="display: flex;">
-            <div class="icon-con">
+            <div class="icon-con" *ngIf="!isReadMail">
                 <img style="width: 12px; height: 12px;" src="../../assets//refresh.png" />
                 Refresh
             </div>
-            <div class="icon-con">
+            <div class="icon-con" *ngIf="!isReadMail">
                 <img style="width: 14px; height: 14px;" src="../../assets/eye.png" />
             </div>
-            <div class="icon-con">
+            <div class="icon-con" *ngIf="!isReadMail">
                 <img style="width: 14px; height: 14px;" src="../../assets/exclamation.png" />
             </div>
             <div class="icon-con">
                 <img style="width: 14px; height: 14px;" src="../../assets/trash.png" />
             </div>
         </div>
-        <div style="display: flex;">
+        <div style="display: flex;" *ngIf="!isReadMail">
             <div class="icon-con" style="margin: 0;">
                 <img style="width: 14px; height: 14px;" src="../../assets/left.png" />
             </div>
@@ -36,6 +36,7 @@
     </div>
 
     <!-- <div class="mails-container"> -->
-    <app-mail-list></app-mail-list>
+    <app-mail-list *ngIf="!isReadMail" (passMesaageDetails)="passMessageToViewMail($event)"></app-mail-list>
+    <app-view-mail *ngIf="isReadMail" [viewMailDetails]="readMailData" (goBackToList)="getInboxList($event)"></app-view-mail>
     <!-- </div> -->
 </div>
