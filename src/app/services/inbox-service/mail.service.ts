@@ -4,14 +4,22 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class MailService {
-  userId;
-  emails;
+  userId = 2;
+  emails = [];
   showComposeMail = false
   count = {inbox: 0, drafts: 7}
   constructor() {
-    this.userId = (localStorage.getItem('loggedInUserId'))
-    this.emails = JSON.parse(localStorage.getItem('mails')).filter(item => item.receiverId == this.userId)
+    let mails = [{senderId: 1, receiverId: 2, subject: "Testing mail", body: "This is a mail", isRead: 0, time: new Date()}]
+    localStorage.setItem("mails", JSON.stringify(mails))
+    // this.userId = (localStorage.getItem('loggedInUserId'))
+    this.emails = JSON.parse(localStorage.getItem('mails'))
+    if(this.emails) {
+    this.emails = this.emails.filter(item => item.receiverId == this.userId)
     this.count.inbox = this.emails.filter(item => !item.isRead).length
+    }
+    else {
+      this.emails = []
+    }
   }
 
   getEmails = () => {

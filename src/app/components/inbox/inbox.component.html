@@ -1,7 +1,7 @@
 <div class="inbox-container">
     <div class="header">
         <div class="heading">
-            Inbox ({{mailService.count['inbox']}})
+            Inbox<span *ngIf = "mailService.count['inbox']" >({{mailService.count['inbox']}})</span>
         </div>
         <div class="search-container">
             <input placeholder="Search email" class="inbox-search" />

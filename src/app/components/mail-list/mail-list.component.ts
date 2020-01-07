@@ -13,6 +13,7 @@ export class MailListComponent implements OnInit {
 
   ngOnInit() {
     this.emails = this.mailService.getEmails()
+    console.log(this.emails)
     this.emails.map(item => {
       item.senderName = users.filter(user => user.id == item.senderId )[0].name
       if(new Date(item.time).toLocaleDateString() == new Date().toLocaleDateString()) {

@@ -16,8 +16,7 @@ export class DetailsComponent implements OnInit {
   constructor(private mailService : MailService) { }
 
   ngOnInit() {
-    let mails = [{senderId: 1, receiverId: 2, subject: "Testing mail", body: "This is a mail", isRead: 0, time: new Date()}]
-    localStorage.setItem("mails", JSON.stringify(mails))
+    
     this.folders = folders
     this.categories = categories
     this.labels = labels
