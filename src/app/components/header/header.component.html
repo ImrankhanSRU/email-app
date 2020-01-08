@@ -52,8 +52,8 @@
 
 
 <!--    </div>-->
-  <nav class="main-menu" [ngClass]="{'expanded': !isSideBarCollapse}">
-    <div class="sidenav-icon-container top-icon" (click)="toggleSideNav()"><label *ngIf="!isSideBarCollapse">+IN</label><i class="fa fa-bars align-bars"></i></div>-
+  <nav class="main-menu" [ngClass]="{'expanded': isSideBarCollapse}">
+    <div class="sidenav-icon-container top-icon" (click)="toggleSideNav()"><label *ngIf="isSideBarCollapse">+IN</label><i class="fa fa-bars align-bars"></i></div>-
     <ul>
       <li>
         <a><img class="menu-icons" src="../../assets/square.png" /><span class="nav-text">Dashboard</span></a>

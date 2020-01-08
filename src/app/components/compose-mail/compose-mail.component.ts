@@ -10,7 +10,7 @@ import { ViewChild } from '@angular/core';
 })
 
 export class ComposeMailComponent implements OnInit {
-  @ViewChild('alert' ,{static: true}) public btn: HTMLButtonElement;
+  @ViewChild('alert', { static: true }) public btn: HTMLButtonElement;
 
   to;
   subject;
@@ -21,13 +21,14 @@ export class ComposeMailComponent implements OnInit {
   status = "Success"
   alertText = "Mail sent"
   // showCompose = true
-
+  userName;
   constructor(private mailService: MailService) { }
 
   ngOnInit() {
+    this.userName = users[this.mailService.userId - 1].userName
   }
 
-  hideCompose(e) {
+  hideCompose() {
     this.mailService.hideComposeMail()
   }
 
@@ -36,27 +37,42 @@ export class ComposeMailComponent implements OnInit {
   }
 
   sendMail() {
-    let mail = {
-      senderId: this.mailService.userId
+    if (!this.to) {
+      alert("Please specify atleast on recipient")
     }
-    let receiver = users.filter(item => item.userName == this.to)
-    if (receiver.length) {
-      this.status = "Success"
-      this.alertText = "Mail sent"
-    }
-
     else {
-      this.status = "Error"
-      this.alertText = "Mail id not found"
+      let receiver = users.filter(item => item.userName == this.to)
+      let subject = this.subject;
+      if (receiver.length) {
+        this.status = "Success"
+        this.alertText = "Mail sent"
+        if (!subject) {
+          subject = "(no subject)"
+        }
+        let mail = {
+          senderId: this.mailService.userId,
+          receiverId: receiver[0].id,
+          subject: this.subject,
+          body: this.message,
+          isRead: 0,
+          time: new Date()
+        }
+        this.mailService.sendMail(mail)
+      }
+
+      else {
+        this.status = "Error"
+        this.alertText = "Mail id not found"
+      }
+      this.showAlert = true
+      setTimeout(() => {
+        this.closeAlert()
+      }, 1000)
     }
-    this.showAlert = true
-    setTimeout(() => {
-      this.closeAlert()
-    }, 1000)
   }
 
   closeAlert = () => {
-    console.log(this.btn)
+    this.showAlert = false
   }
 
 }

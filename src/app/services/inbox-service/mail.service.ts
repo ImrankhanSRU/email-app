@@ -9,9 +9,13 @@ export class MailService {
   showComposeMail = false
   count = {inbox: 0, drafts: 7}
   constructor() {
-    let mails = [{senderId: 1, receiverId: 2, subject: "Testing mail", body: "This is a mail", isRead: 0, time: new Date()}]
-    localStorage.setItem("mails", JSON.stringify(mails))
+    // let mails = [{senderId: 1, receiverId: 2, subject: "Testing mail", body: "This is a mail", isRead: 0, time: new Date()}]
+    // localStorage.setItem("mails", JSON.stringify(mails))
     // this.userId = (localStorage.getItem('loggedInUserId'))
+    this.formatEmails()
+  }
+
+  formatEmails = () => {
     this.emails = JSON.parse(localStorage.getItem('mails'))
     if(this.emails) {
     this.emails = this.emails.filter(item => item.receiverId == this.userId)
@@ -40,16 +44,18 @@ export class MailService {
   }
 
   decreaseUnReadCount = (index) => {
-    localStorage.setItem('mails', JSON.stringify(this.emails))
     if (this.count.inbox && !this.emails[index].isRead) {
       this.emails[index].isRead = 1
       this.count.inbox--;
+      localStorage.setItem('mails', JSON.stringify(this.emails))
     }
   }
 
   sendMail = (data) => {
-    this.emails.push(data)
-    localStorage.setItem('mails', JSON.stringify(this.emails))
+    let preEmails = this.emails
+    preEmails.push(data)
+    localStorage.setItem('mails', JSON.stringify(preEmails))
+    this.formatEmails()
   }
 
 }
