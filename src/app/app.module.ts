@@ -11,6 +11,7 @@ import { DetailsComponent } from './components/details/details.component';
 import { InboxComponent } from './components/inbox/inbox.component';
 import { MailListComponent } from './components/mail-list/mail-list.component';
 import { ComposeMailComponent } from './components/compose-mail/compose-mail.component';
+import { ViewMailComponent } from './components/view-mail/view-mail.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ComposeMailComponent } from './components/compose-mail/compose-mail.com
     DetailsComponent,
     InboxComponent,
     MailListComponent,
-    ComposeMailComponent
+    ComposeMailComponent,
+    ViewMailComponent
   ],
   imports: [
     BrowserModule,

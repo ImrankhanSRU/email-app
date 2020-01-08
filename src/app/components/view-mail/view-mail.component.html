@@ -1,0 +1,24 @@
+<div class="read-msg-container">
+  <div class="back-arrow" (click)="goBacktoMailList()"><i class="fa fa-arrow-left"></i></div>
+  <h2 class="mail-subject">{{viewMailDetails.subject}}</h2>
+  <div>
+    <label><i class="fa fa-user"></i>
+      <span class="sender-name">{{viewMailDetails.senderName}}</span>
+      <span>{{'<'+viewMailDetails.SenderEmail+'>'}}</span>
+  </label>
+    <div>
+      <label class="to-me">to me</label>
+    </div>
+    <div class="hai-name">
+      <label >hi demo,</label>
+    </div>
+    <div class="body-msg">
+      <label>{{viewMailDetails.body}}</label>
+    </div>
+    <div class="regards">
+      <label>Thanks and regards,</label><br/>
+      <label style="font-size: 13px;">{{"-     "+viewMailDetails.senderName}}</label><br/>
+      <label style="font-size: 13px;">{{viewMailDetails.SenderEmail}}</label>
+    </div>
+</div>
+</div>

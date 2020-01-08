@@ -1,4 +1,4 @@
-<div *ngFor = "let mail of emails; let i = index" class="mail-card" style="font-weight: bold;" (click) = "readMail(i)">
+<div *ngFor = "let mail of emails; let i = index" class="mail-card" style="font-weight: bold;" (click) = "readMail(i)" [ngClass]="mail.isRead == 1 ? 'read-background': 'unread-background'">
     <div style="display: flex; justify-content: space-between; width: 80%;">
         <div class="flex-box" style="width: 35%;">
             <div class="flex-box">

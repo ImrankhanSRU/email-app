@@ -18,29 +18,27 @@ export class MailService {
   formatEmails = () => {
     this.emails = JSON.parse(localStorage.getItem('mails'))
     if(this.emails) {
-    this.emails = this.emails.filter(item => item.receiverId == this.userId)
-    this.count.inbox = this.emails.filter(item => !item.isRead).length
+    this.emails = this.emails.filter(item => item.receiverId == this.userId);
+    this.count.inbox = this.emails.filter(item => !item.isRead).length;
     }
     else {
-      this.emails = []
+      this.emails = [];
     }
   }
-
   getEmails = () => {
-
-    return this.emails
+    return this.emails;
   }
 
   getUnReadCount = () => {
-    return this.emails.filter(item => !item.isRead).length
+    return this.emails.filter(item => !item.isRead).length;
   }
 
   popupComposeMail = () => {
-    this.showComposeMail = true
+    this.showComposeMail = true;
   }
 
   hideComposeMail = () => {
-    this.showComposeMail = false
+    this.showComposeMail = false;
   }
 
   decreaseUnReadCount = (index) => {
