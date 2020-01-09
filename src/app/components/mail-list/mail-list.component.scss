@@ -17,7 +17,9 @@
     height: 0;
     width: 0;
   }
-
+.time {
+  width: 8vw; text-align: right;
+}
   /* Create a custom checkbox */
   .checkmark {
     position: absolute;
@@ -78,7 +80,69 @@
 }
 .read-background{
   background-color: #F9F8F8;
+  font-weight: normal;
 }
 .unread-background{
    background-color: #FFFFFF;
+   font-weight: bold;
+
+ }
+
+ .mail-subject {
+    width: 60%; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    // text-align: center;
+ }
+
+ .mail-text {
+  //  width: 65vw;
+   width: 100%;
+ }
+ .icon-con {
+  border: 1px solid lightgray;
+  margin-right: 5px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 13px;
+}
+
+.icon-con:hover {
+  background-color: lightgray;
+}
+
+.fun-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 10px;;
+}
+ @media(max-width: 767px) {
+  .mail-card {
+    font-size: 12px;
+  }
+
+  .checkmark {
+    width: 15px;
+    height: 15px;
+  }
+  .mail-text {
+    // width: 85vw;
+    width: 100%;
+  }
+  .mail-subject {
+    width: 50%;
+  }
+
+  .time {
+    width: auto;
+  }
+
+  .container .checkmark:after {
+    left: 0;
+    top: 0;
+    width: 8px;
+    height: 8px;
+  }
  }

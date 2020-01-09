@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { folders, categories, labels } from '../mockData.json'
 import { MailService } from '../../services/inbox-service/mail.service'
 
@@ -13,10 +13,12 @@ export class DetailsComponent implements OnInit {
   categories;
   show = false
   labels;
-  constructor(private mailService : MailService) { }
+  @Output()
+  sendMail = new EventEmitter<any>();
+  constructor(private mailService: MailService) { }
 
   ngOnInit() {
-    
+
     this.folders = folders
     this.categories = categories
     this.labels = labels
@@ -26,7 +28,14 @@ export class DetailsComponent implements OnInit {
     this.mailService.popupComposeMail()
   }
 
-  
-  
+  goToSendMails = (name) => {
+    if (name == "Send Mail") {
+      this.sendMail.emit("Sent Mails");
+    }
+    else if (name == "Inbox") {
+      this.sendMail.emit("Inbox");
+    }
+  }
+
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit,Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, Input, SimpleChanges } from '@angular/core';
 import { MailService } from '../../services/inbox-service/mail.service'
 
 @Component({
@@ -6,19 +6,61 @@ import { MailService } from '../../services/inbox-service/mail.service'
   templateUrl: './inbox.component.html',
   styleUrls: ['./inbox.component.scss']
 })
+
 export class InboxComponent implements OnInit {
-
+  emails = []
+  data = {"text": "Inbox", emails: []}
+  @Input() public headingText;
   constructor(private mailService: MailService) { }
-
+  sentMails = []
   public isReadMail = false;
+  public isShowSendMail = false
   readMailData = {};
-  ngOnInit() {
+  ngOnChanges() {
+    this.data.text = this.headingText
+    if (this.headingText == "Sent Mails") {
+      this.getSentMails()
+    }
+    else {
+      this.getEmails()
+    }
   }
-  passMessageToViewMail(data){
+  ngOnInit() {
+    this.getEmails()
+    // this.getSentMails()
+  }
+
+  getEmails = () => {
+    this.emails = this.mailService.getEmails()
+    this.data.emails = this.emails
+  }
+
+  getSentMails = () => {
+    this.emails = this.mailService.getSentMails()
+    this.sentMails = this.emails
+    this.data.emails = this.emails
+    this.emails.map(item => {
+      if (new Date(item.time)) {
+
+        if (new Date(item.time).toLocaleDateString() == new Date().toLocaleDateString()) {
+          item.time = new Date(item.time).toLocaleTimeString()
+        } else {
+          item.time = new Date(item.time).toDateString()
+        }
+      }
+    })
+  }
+
+  passMessageToViewMail(data) {
     this.readMailData = data;
     this.isReadMail = true;
   }
-  getInboxList(event){
+  getInboxList(event) {
     this.isReadMail = event;
   }
+
+  // passSendMailsToMailList = (data) => {
+  //   this.text = data
+  // }
+
 }

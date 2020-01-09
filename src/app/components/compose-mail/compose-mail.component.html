@@ -1,7 +1,4 @@
-<div *ngIf = "showAlert" [ngClass] = "status == 'Success' ? 'alert success': 'alert error' " >
-    <span (click) = "closeAlert($event)" class="closebtn">&times;</span>
-    <strong>{{status}}!</strong> {{alertText}}.
-</div>
+
 <div class="compose-container">
     <div class="header flex-box">
         <div>
@@ -33,3 +30,5 @@
         <div class="primary-button send" [class.disabled] = true (click)="sendMail()">Send</div>
     </div>
 </div>
+
+<app-alert *ngIf="isShowAlert" [alertData]="alertData" (closeAlert)="closeAlert($event)"></app-alert>

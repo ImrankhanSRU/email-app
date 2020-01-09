@@ -1,0 +1,20 @@
+<div class="login">
+    <div class="login-header">
+    </div>
+    <div class="login-form">
+      <h3>Username:</h3>
+      <input  type="text" [(ngModel)] = "userName" placeholder="Username"/><br>
+      <h3>Password:</h3>
+      <input type="password" [(ngModel)] = "password" placeholder="Password"/>
+      <br>
+      <button  (click) = "authenticateUser()" type="button" value="Login" class="login-button">
+          Login
+      </button>
+      <br>
+      <br>
+      <!-- <h6 class="no-access">Can't access your account?</h6> -->
+    </div>
+  </div>
+  <div class="error-page">
+    <div class="try-again">Error: Try again?</div>
+  </div>

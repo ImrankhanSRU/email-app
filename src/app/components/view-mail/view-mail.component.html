@@ -3,22 +3,22 @@
   <h2 class="mail-subject">{{viewMailDetails.subject}}</h2>
   <div>
     <label><i class="fa fa-user"></i>
-      <span class="sender-name">{{viewMailDetails.senderName}}</span>
-      <span>{{'<'+viewMailDetails.SenderEmail+'>'}}</span>
+      <span class="sender-name">{{senderName}}</span>
+      <span>{{'<'+senderEmail+'>'}}</span>
   </label>
     <div>
       <label class="to-me">to me</label>
     </div>
-    <div class="hai-name">
+    <!-- <div class="hai-name">
       <label >hi demo,</label>
-    </div>
+    </div> -->
     <div class="body-msg">
       <label>{{viewMailDetails.body}}</label>
     </div>
     <div class="regards">
       <label>Thanks and regards,</label><br/>
-      <label style="font-size: 13px;">{{"-     "+viewMailDetails.senderName}}</label><br/>
-      <label style="font-size: 13px;">{{viewMailDetails.SenderEmail}}</label>
+      <label style="font-size: 13px;">{{"-     "+senderName}}</label><br/>
+      <label style="font-size: 13px;">{{senderEmail}}</label>
     </div>
 </div>
 </div>

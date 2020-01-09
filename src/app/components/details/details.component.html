@@ -8,7 +8,7 @@
             <div class="folder" *ngFor="let f of folders">
                 <div>
                     <img class="icon" [src]='f.url' />
-                    <p class="name">{{f.name}}</p>
+                    <p (click) = "goToSendMails(f.name)" class="name">{{f.name}}</p>
                 </div>
                 <div *ngIf="(f.name == 'Inbox' || f.name == 'Drafts') && mailService.count[f.name.toLowerCase()] " [ngClass]="['label', f.name] ">
                     {{mailService.count[f.name.toLowerCase()]}}

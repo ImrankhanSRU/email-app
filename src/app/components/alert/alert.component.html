@@ -1,0 +1,4 @@
+<div [ngClass] = "alertData.status == 'Success' ? 'alert success': 'alert error' " >
+    <span (click) = "closeAlertMessage()" class="closebtn">&times;</span>
+    <strong>{{alertData.status}}!</strong> {{alertData.alertText}}.
+</div>

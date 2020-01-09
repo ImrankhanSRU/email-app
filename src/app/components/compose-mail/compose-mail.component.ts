@@ -10,22 +10,25 @@ import { ViewChild } from '@angular/core';
 })
 
 export class ComposeMailComponent implements OnInit {
-  @ViewChild('alert', { static: true }) public btn: HTMLButtonElement;
 
   to;
   subject;
   cc;
   showCc = false;
   message;
-  showAlert = false;
-  status = "Success"
-  alertText = "Mail sent"
+  isShowAlert = false;
+  isShowCompose = true;
+  alertData = {
+    status: '',
+    alertText: ''
+  }
   // showCompose = true
   userName;
   constructor(private mailService: MailService) { }
 
   ngOnInit() {
-    this.userName = users[this.mailService.userId - 1].userName
+    let userId = parseInt(localStorage.getItem('loggedUserId'))
+    this.userName = users[userId - 1].userName
   }
 
   hideCompose() {
@@ -37,6 +40,7 @@ export class ComposeMailComponent implements OnInit {
   }
 
   sendMail() {
+    let senderId = parseInt(localStorage.getItem('loggedUserId'))
     if (!this.to) {
       alert("Please specify atleast on recipient")
     }
@@ -44,40 +48,46 @@ export class ComposeMailComponent implements OnInit {
       let receiver = users.filter(item => item.userName == this.to)
       let subject = this.subject;
       if (receiver.length) {
-        this.status = "Success"
-        this.alertText = "Mail sent"
+        this.alertData = {
+          status: "Success",
+          alertText: "Mail sent"
+        }
         if (!subject) {
           subject = "(no subject)"
         }
         let mail = {
-          senderId: this.mailService.userId,
+          senderId,
           receiverId: receiver[0].id,
-          subject: this.subject,
+          subject: subject,
           body: this.message,
           isRead: 0,
           time: new Date()
         }
         this.mailService.sendMail(mail)
+        this.isShowAlert = true
+        this.isShowCompose = false
+        setTimeout(() => {
+          this.closeAlert(false)
+          this.mailService.showComposeMail = false
+        }, 2000);
       }
 
       else {
-        this.status = "Error"
-        this.alertText = "Mail id not found"
+
+        this.alertData = {
+          status: "Error",
+          alertText: "Receiver Mail id not found"
+        }
+        this.isShowAlert = true
+
       }
-      this.showAlert = true
-      setTimeout(() => {
-        this.closeAlert()
-      }, 1000)
+
     }
-    this.showAlert = true
-    setTimeout(() => {
-      this.closeAlert()
-    }, 2000);
+
   }
 
-  closeAlert = () => {
-    console.log(this.btn)
-    this.showAlert = false;
+  closeAlert = (e) => {
+    this.isShowAlert = e
   }
 
 }

@@ -1,4 +1,6 @@
 .inbox-container {
+    border-radius: 5px;
+    width: 70vw;
     background-color: white;
     padding: 20px 0px;
     color: #666666;
@@ -37,28 +39,21 @@
     display: flex;
 }
 
-.icon-con {
-    border: 1px solid lightgray;
-    margin-right: 5px;
-    padding: 5px 10px;
-    border-radius: 3px;
-    font-size: 13px;
+.second {
+    width: 60vw;
 }
 
-.icon-con:hover {
-    background-color: lightgray;
+.empty-text {
+    background: none;
+    text-align: center; 
+    color: #666666;
 }
-
-.fun-container {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    padding: 10px;;
+.mobile-compose {
+    display: none;
 }
-
 @media(max-width: 767px) {
     .inbox-container {
-        width: 97vw;
+        width: auto;
         .header {
             flex-direction: column;
         }
@@ -70,6 +65,21 @@
 
     .search-container {
         width: 98%;
+    }
+
+    .inbox-search {
+        width: 100%;
+    }
+    .mobile-compose {
+        display: block;
+    }
+    
+    .plus-icon {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
     }
 }
 

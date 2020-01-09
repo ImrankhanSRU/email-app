@@ -144,6 +144,10 @@
   right: 20px;
   cursor:pointer;
 }
+
+.details-component {
+  width: 30%;
+}
 @media(max-width: 1024px) {
     .details-container {
         // width: 30%;
@@ -154,9 +158,13 @@
     .menu-icon {
         display: block;
     }
-    .icons {
+    .label-con {
         display: none;
     }
+    .icon {
+      width: 14px;
+    }
+   
     .sidenav-container {
         display: none;
     }
@@ -164,7 +172,7 @@
     .header {
         padding: 5px;
         height: 5vh;
-        width: 100vw;
+        // width: 100vw;
     }
 
     .details-container {
@@ -174,6 +182,10 @@
 
     .inbox {
         padding: 0;
+    }
+
+    .details-component {
+      display: none;
     }
 }
 

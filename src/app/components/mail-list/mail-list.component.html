@@ -1,22 +1,57 @@
-<div *ngFor = "let mail of emails; let i = index" class="mail-card" style="font-weight: bold;" (click) = "readMail(i)" [ngClass]="mail.isRead == 1 ? 'read-background': 'unread-background'">
-    <div style="display: flex; justify-content: space-between; width: 80%;">
-        <div class="flex-box" style="width: 35%;">
-            <div class="flex-box">
-                <label class="container">
-                    <input class="checkbox" type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <div style="margin-left: 10px;">{{mail.senderName}}</div>
+<div class = "flex-box" style = "flex-direction: column;">
+
+    <div class="fun-container">
+        <div style="display: flex;">
+            <div class="icon-con">
+                <img style="width: 12px; height: 12px;" src="../../assets//refresh.png" />
+                Refresh
             </div>
-            <!-- <app-label type="unRead" text="Documents"></app-label> -->
-            <div style="margin-right: 30px;">Documents</div>
+            <div class="icon-con">
+                <img style="width: 14px; height: 14px;" src="../../assets/eye.png" />
+            </div>
+            <div class="icon-con">
+                <img style="width: 14px; height: 14px;" src="../../assets/exclamation.png" />
+            </div>
+            <div class="icon-con" (click) = "deleteMails()">
+                <img style="width: 14px; height: 14px;" src="../../assets/trash.png" />
+            </div>
         </div>
-        <div style="width: 60%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-            {{mail.subject}}
-        </div >
+        <div style="display: flex;">
+            <div class="icon-con" style="margin: 0;">
+                <img style="width: 14px; height: 14px;" src="../../assets/left.png" />
+            </div>
+            <div class="icon-con" style="margin: 0;">
+                <img style="width: 14px; height: 14px;" src="../../assets/right.png" />
+            </div>
+        </div>
     </div>
-    <div style="width: 15%; display: flex; align-items: center; justify-content: space-between;">
-        <img [ngStyle]="{'visibility': true ? 'hidden' : 'visible' }" src="../../assets//important.png" />
-        <div>{{mail.time}}</div>
+    <div *ngFor="let mail of data.emails; let i = index" class="mail-card"
+        [ngClass]="mail.isRead == 1 ? 'read-background': 'unread-background'">
+        <div style="display: flex; width: 100%;">
+            <div>
+                <div class="flex-box">
+                    <div class="flex-box">
+                        <label class="container">
+                            <input (change)="storeSelectedStatus(mail.id, $event)" id="'i'" class="checkbox"
+                                type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <!-- <app-label type="unRead" text="Documents"></app-label> -->
+                    <!-- <div style="margin-right: 30px;">Documents</div> -->
+                </div>
+            </div>
+            <div class="flex-box mail-text" (click)="readMail(i)">
+                <div style="margin-left: 10px;">{{mail.senderName}}</div>
+                <div class="mail-subject">
+                    {{mail.subject}}
+                    <ng-container *ngIf="mail.body"> - {{mail.body}}</ng-container>
+                </div>
+                <div>
+                    <!-- <img [ngStyle]="{'visibility': true ? 'hidden' : 'visible' }" src="../../assets//important.png" /> -->
+                    <div class="time">{{mail.time}}</div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

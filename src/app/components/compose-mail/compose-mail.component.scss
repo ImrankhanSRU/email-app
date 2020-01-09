@@ -81,36 +81,14 @@ label {
     margin-bottom: 10px;
 }
 
-.alert {
-    position: absolute;
-    top: 10%;
-    left: 35%;
-    padding: 10px;
-    color: white;
-    border-radius: 5px;
-    width: 25%;
-    text-align: center;
-  }
+@media(max-width: 767px) {
+    .compose-container {
+        top: 0;
+        width: 100%;
+        right: 0;
+    }
 
-  .success {
-    background-color: #4CAF50;
-  }
-
-  .error {
-    background-color: #f44336
-  }
-  
-  .closebtn {
-    margin-left: 15px;
-    color: white;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  .closebtn:hover {
-    color: black;
-  }
+    .message-area {
+        height: 50vh;
+    }
+}
