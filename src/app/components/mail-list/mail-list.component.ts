@@ -62,7 +62,6 @@ export class MailListComponent implements OnInit {
     }
     else {
       this.mailService.deleteSentMails(this.selectedIndeices)
-      // this.mailService.deleteMails(this.selectedIndeices)
       this.getSentMails()
     }
     this.selectedIndeices = []
