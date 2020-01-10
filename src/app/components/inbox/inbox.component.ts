@@ -11,7 +11,7 @@ export class InboxComponent implements OnInit {
   emails = []
   data = {"text": "Inbox", emails: []}
   @Input() public headingText;
-  constructor(private mailService: MailService) { }
+  constructor(public mailService: MailService) { }
   sentMails = []
   public isReadMail = false;
   public isShowSendMail = false

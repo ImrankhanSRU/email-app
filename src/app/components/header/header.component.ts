@@ -8,7 +8,7 @@ import { LoginService } from '../../services/login/login.service'
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  constructor(private mailService: MailService, private loginService: LoginService) { }
+  constructor(public mailService: MailService, protected loginService: LoginService) { }
   public isSideBarCollapse = false;
   public dropDownName = '';
   text = "Inbox"

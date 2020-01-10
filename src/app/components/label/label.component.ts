@@ -6,8 +6,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./label.component.scss']
 })
 export class LabelComponent implements OnInit {
-  @Input() private text;
-  @Input() private type;
+  @Input() public text;
+  @Input() public type;
 
   labelColors = {
     unRead: "rgb(251, 160, 48)",

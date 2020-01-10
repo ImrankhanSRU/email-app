@@ -15,7 +15,7 @@ export class DetailsComponent implements OnInit {
   labels;
   @Output()
   sendMail = new EventEmitter<any>();
-  constructor(private mailService: MailService) { }
+  constructor(public mailService: MailService) { }
 
   ngOnInit() {
 
