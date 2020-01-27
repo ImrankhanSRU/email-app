@@ -27,7 +27,7 @@
             <input [(ngModel)]="subject" placeholder="Subject" class="to-input" />
         </div>
         <textarea [(ngModel)]="message" class="message-area"></textarea>
-        <div class="primary-button send" [class.disabled] = true (click)="sendMail()">Send</div>
+        <div class="primary-button send" [class.disabled] = true (click)="checkConditions()">Send</div>
     </div>
 </div>
 

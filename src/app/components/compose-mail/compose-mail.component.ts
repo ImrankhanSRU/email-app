@@ -39,37 +39,47 @@ export class ComposeMailComponent implements OnInit {
     this.showCc = !this.showCc
   }
 
-  sendMail() {
+  checkConditions() {
     let senderId = parseInt(localStorage.getItem('loggedUserId'))
     if (!this.to) {
       alert("Please specify atleast on recipient")
     }
     else {
       let receiver = users.filter(item => item.userName == this.to)
+      let cc = users.filter(item => item.userName == this.cc)
+      console.log(cc)
       let subject = this.subject;
       if (receiver.length) {
-        this.alertData = {
-          status: "Success",
-          alertText: "Mail sent"
+        if ((!this.showCc) || cc.length) {
+          this.alertData = {
+            status: "Success",
+            alertText: "Mail sent"
+          }
+          if (!subject) {
+            subject = "(no subject)"
+          }
+          let mail = {
+            senderId,
+            receiverId: receiver[0].id,
+            subject: subject,
+            body: this.message,
+            isRead: 0,
+            time: new Date()
+          }
+          this.sendMail(mail)
+          if (cc.length) {
+            let ccMail = {...mail}
+            ccMail.receiverId = cc[0].id
+          }
         }
-        if (!subject) {
-          subject = "(no subject)"
+        
+        else {
+          this.alertData = {
+            status: "Error",
+            alertText: "CC Mail id not found"
+          }
+          this.isShowAlert = true
         }
-        let mail = {
-          senderId,
-          receiverId: receiver[0].id,
-          subject: subject,
-          body: this.message,
-          isRead: 0,
-          time: new Date()
-        }
-        this.mailService.sendMail(mail)
-        this.isShowAlert = true
-        this.isShowCompose = false
-        setTimeout(() => {
-          this.closeAlert(false)
-          this.mailService.showComposeMail = false
-        }, 2000);
       }
 
       else {
@@ -85,6 +95,17 @@ export class ComposeMailComponent implements OnInit {
     }
 
   }
+
+  sendMail = (mail) => {
+    this.mailService.sendMail(mail)
+    this.isShowAlert = true
+    this.isShowCompose = false
+    setTimeout(() => {
+      this.closeAlert(false)
+      this.mailService.showComposeMail = false
+    }, 2000);
+  }
+
 
   closeAlert = (e) => {
     this.isShowAlert = e

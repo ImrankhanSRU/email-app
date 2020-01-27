@@ -65,7 +65,7 @@ export class MailService {
       let allEmails = JSON.parse(localStorage.getItem('inboxMails'))
       if (allEmails) {
         allEmails.map((item, i) => {
-          if(item.id == this.emails[index].id) {
+          if (item.id == this.emails[index].id) {
             allEmails[i].isRead = 1
           }
         })
@@ -81,17 +81,25 @@ export class MailService {
     if (!preMails) {
       preMails = []
       id = 1
+      preMails.push(data)
     }
     else {
       id = preMails.length + 1
+      preMails.splice(0, 0, data)
     }
     data.id = id
-    preMails.push(data)
+    let cc;
     localStorage.setItem('inboxMails', JSON.stringify(preMails))
     let sentMails = JSON.parse(localStorage.getItem('sentMails'))
     let sendMailData = { ...data }
     sendMailData.isRead = 1
-    sentMails.push(sendMailData)
+    if (!sentMails) {
+      sentMails = []
+      sentMails.push(sendMailData)
+    }
+    else {
+      sentMails.splice(0, 0, sendMailData)
+    }
     localStorage.setItem('sentMails', JSON.stringify(sentMails))
     this.formatEmails()
   }

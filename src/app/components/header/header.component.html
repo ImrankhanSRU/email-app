@@ -53,8 +53,14 @@
 
   <!--    </div>-->
   <nav class="main-menu" [ngClass]="{'expanded': isSideBarCollapse}">
-    <div class="sidenav-icon-container top-icon" (click)="toggleSideNav()"><label
-        *ngIf="isSideBarCollapse">+IN</label><i class="fa fa-bars align-bars"></i></div>-
+    <div class="sidenav-icon-container top-icon" (click)="toggleSideNav()">
+      <label *ngIf="!isSideBarCollapse">+IN</label>
+      <div *ngIf="isSideBarCollapse" class="userDetails">
+        <img class="user-icon" src="../../../assets/user-icon.jpg" />
+        <label class="name">{{name}}</label>
+      </div>
+    </div>
+
     <ul>
       <li>
         <a><img class="menu-icons" src="../../assets/square.png" /><span class="nav-text">Dashboard</span></a>
@@ -63,22 +69,26 @@
         <a> <img class="menu-icons" src="../../assets/diamond.png" /><span class="nav-text">Layouts</span></a>
       </li>
       <li class="has-subnav">
-        <a><img class="menu-icons" src="../../assets/graph.png" /> <span class="nav-text"
-            (click)="openDropdown('Mailbox')">Mailbox<i class="fa fa-sort-down"></i></span></a>
+        <a><img class="menu-icons" src="../../assets/graph.png" /> <span class="nav-text">Metrics<i></i></span></a>
+
+      </li>
+      <li class="has-subnav activeTab">
+        <a><img class="menu-icons" src="../../assets/envelope.png" />
+          <span class="nav-text" (click)="openDropdown('Mailbox')">Mailbox
+            <i class="fa fa-sort-down"></i>
+          </span>
+        </a>
         <div *ngIf="dropDownName == 'Mailbox'">
-          <div class="has-subnav-item">
-            <div class="nav-text">Layouts</div>
+          <div class="has-subnav-item  active-sub-nav">
+            <div class="sub-nav-text">Inbox</div>
           </div>
           <div class="has-subnav-item">
-            <div class="nav-text">Layouts</div>
+            <div class="sub-nav-text">Email view</div>
           </div>
           <div class="has-subnav-item">
-            <div class="nav-text">Layouts</div>
+            <div class="sub-nav-text">Email templates</div>
           </div>
         </div>
-      </li>
-      <li class="has-subnav">
-        <a><img class="menu-icons" src="../../assets/envelope.png" /><span class="nav-text">Metrics</span></a>
       </li>
       <li class="has-subnav">
         <a><img class="menu-icons" src="../../assets/square.png" /><span class="nav-text">Widgets</span></a>
@@ -108,15 +118,15 @@
         </div>
         <div style="display: flex;" class="logout-icon">
           <img class="icon logout" src="../../assets/logout.png" />
-          <span (click) = "logout()" class="logout">Log out</span>
+          <span (click)="logout()" class="logout">Log out</span>
         </div>
       </div>
     </div>
 
     <div class="details-container">
-      <app-details (sendMail) = "passSendMailData($event)"  class="details-compoennt"></app-details>
+      <app-details (sendMail)="passSendMailData($event)" class="details-compoennt"></app-details>
       <div class="inbox">
-        <app-inbox [headingText] = "text" ></app-inbox>
+        <app-inbox [headingText]="text"></app-inbox>
       </div>
 
     </div>
